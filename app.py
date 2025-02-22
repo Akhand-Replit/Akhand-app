@@ -50,6 +50,20 @@ st.markdown("""
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+    
+    .logout-btn {
+        background: #ef4444 !important;
+        color: white !important;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+    }
+    
+    .logout-btn:hover {
+        opacity: 0.9;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -88,6 +102,15 @@ def check_password():
 
 # Main app logic
 if check_password():
+    # Logout button in sidebar
+    with st.sidebar:
+        st.markdown("---")
+        if st.button("🚪 Log Out", key="logout_btn", help="Click to log out of the system"):
+            # Clear authentication credentials
+            st.session_state["password_correct"] = False
+            st.rerun()
+    
+    # Main content
     st.title("Akhand Unified Portal")
     st.markdown('<h2 class="gradient-header">Application Gateway</h2>', unsafe_allow_html=True)
     
@@ -140,5 +163,5 @@ if check_password():
         """, unsafe_allow_html=True)
     
     st.markdown("---")
-    st.caption("ℹ️ Applications will open in new browser tabs • v1.0.0")
+    st.caption("ℹ️ Applications will open in new browser tabs • v1.1.0")
     st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
