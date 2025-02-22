@@ -53,10 +53,40 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Authentication (same as before)
+# Authentication function
 def check_password():
-    # ... (keep the same password check implementation from previous version)
+    """Returns `True` if the user entered the correct password."""
+    def password_entered():
+        if "PASSWORD" in st.secrets and "password" in st.session_state:
+            if st.session_state["password"] == st.secrets.PASSWORD:
+                st.session_state["password_correct"] = True
+                del st.session_state["password"]
+            else:
+                st.session_state["password_correct"] = False
 
+    if "password_correct" not in st.session_state:
+        st.text_input(
+            "Password", 
+            type="password", 
+            key="password", 
+            on_change=password_entered,
+            placeholder="Enter your access code"
+        )
+        return False
+    elif not st.session_state["password_correct"]:
+        st.text_input(
+            "Password", 
+            type="password", 
+            key="password", 
+            on_change=password_entered,
+            placeholder="Try again"
+        )
+        st.error("Incorrect password. Please try again.")
+        return False
+    else:
+        return True
+
+# Main app logic
 if check_password():
     st.title("Akhand Unified Portal")
     st.markdown('<h2 class="gradient-header">Application Gateway</h2>', unsafe_allow_html=True)
@@ -111,6 +141,4 @@ if check_password():
     
     st.markdown("---")
     st.caption("ℹ️ Applications will open in new browser tabs • v1.0.0")
-
-    # Add empty space for better mobile layout
     st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
