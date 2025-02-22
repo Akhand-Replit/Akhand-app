@@ -1,16 +1,17 @@
+# main_app.py
 import streamlit as st
-from streamlit.components.v1 import html
 
 # Authentication
 def check_password():
     """Returns `True` if the user entered the correct password."""
     
     def password_entered():
-        if st.session_state["password"] == st.secrets["PASSWORD"]:
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # Don't store the password
-        else:
-            st.session_state["password_correct"] = False
+        if "PASSWORD" in st.secrets and "password" in st.session_state:
+            if st.session_state["password"] == st.secrets.PASSWORD:
+                st.session_state["password_correct"] = True
+                del st.session_state["password"]
+            else:
+                st.session_state["password_correct"] = False
 
     if "password_correct" not in st.session_state:
         st.text_input(
@@ -27,20 +28,27 @@ def check_password():
         return True
 
 if check_password():
-    st.title("Akhand Unified Dashboard")
+    st.title("Akhand Unified Portal")
     
-    tab1, tab2 = st.tabs(["Public App", "Private App"])
+    st.subheader("Access Applications")
     
-    with tab1:
-        st.header("Public Application")
-        html(
-            f'<iframe src="https://akhand.streamlit.app/" width="100%" height="800"></iframe>',
-            height=800,
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown(
+            """<a href="https://akhand.streamlit.app/" target="_blank">
+            <button style="width:100%;padding:10px;cursor:pointer;">Open Public App</button>
+            </a>""",
+            unsafe_allow_html=True
         )
     
-    with tab2:
-        st.header("Private Application")
-        html(
-            f'<iframe src="https://akhand-selected-people.streamlit.app/" width="100%" height="800"></iframe>',
-            height=800,
+    with col2:
+        st.markdown(
+            """<a href="https://akhand-selected-people.streamlit.app/" target="_blank">
+            <button style="width:100%;padding:10px;cursor:pointer;">Open Private App</button>
+            </a>""",
+            unsafe_allow_html=True
         )
+    
+    st.markdown("---")
+    st.info("ℹ️ Apps will open in new browser tabs")
