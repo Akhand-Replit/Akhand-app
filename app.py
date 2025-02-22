@@ -1,28 +1,27 @@
-import streamlit as st
+import streamlit as st import os
 
-# Load static password from secrets.toml
+Load static password from .streamlit/config.toml or set it directly
+
 STATIC_PASSWORD = st.secrets["password"]
 
 st.title("Main Web App")
 
-# Login feature
-password = st.text_input("Enter Password:", type="password")
+Login feature
 
-if password == STATIC_PASSWORD:
-    st.success("Access granted!")
+password = st.text_input("Enter Password:", type="password") login_button = st.button("Login") if login_button and password == STATIC_PASSWORD: st.success("Access granted!")
 
-    st.subheader("Access Your Apps")
+st.subheader("Access Your Apps")
 
-    # Links to open the two apps in a new tab
-    st.markdown("[Open App 1](https://akhand.streamlit.app)", unsafe_allow_html=True)
-    st.markdown("[Open App 2](https://akhand-selected-people.streamlit.app)", unsafe_allow_html=True)
+# Links to open the two apps in a new tab
+st.markdown("[Open App 1](https://akhand.streamlit.app)", unsafe_allow_html=True)
+st.markdown("[Open App 2](https://akhand-selected-people.streamlit.app)", unsafe_allow_html=True)
 
-    # Buttons to redirect users
-    if st.button("Open App 1"):
-        st.markdown('<meta http-equiv="refresh" content="0; url=https://akhand.streamlit.app">', unsafe_allow_html=True)
+# Buttons to redirect users
+if st.button("Open App 1"):
+    st.markdown('<meta http-equiv="refresh" content="0; url=https://your-app1-url.streamlit.app">', unsafe_allow_html=True)
 
-    if st.button("Open App 2"):
-        st.markdown('<meta http-equiv="refresh" content="0; url=https://akhand-selected-people.streamlit.app">', unsafe_allow_html=True)
+if st.button("Open App 2"):
+    st.markdown('<meta http-equiv="refresh" content="0; url=https://your-app2-url.streamlit.app">', unsafe_allow_html=True)
 
-else:
-    st.error("Access denied. Incorrect password.")
+else: st.error("Access denied. Incorrect password.")
+
