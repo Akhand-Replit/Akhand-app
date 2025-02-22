@@ -1,13 +1,12 @@
 import streamlit as st
 import os
 
-Load static password from .streamlit/config.toml or set it directly
 
 STATIC_PASSWORD = st.secrets["password"]
 
 st.title("Main Web App")
 
-Login feature
+#Login feature
 
 password = st.text_input("Enter Password:", type="password") if password == STATIC_PASSWORD: st.success("Access granted!")
 
