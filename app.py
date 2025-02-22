@@ -1,4 +1,5 @@
-import streamlit as st import os
+import streamlit as st
+import os
 
 Load static password from .streamlit/config.toml or set it directly
 
