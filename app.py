@@ -79,6 +79,9 @@ def check_password():
                 st.session_state["password_correct"] = False
 
     if "password_correct" not in st.session_state:
+            # Add title and description
+        st.title("Akhand App")
+        st.markdown("**Description:** Where you have all of your data")
         st.text_input(
             "Password", 
             type="password", 
