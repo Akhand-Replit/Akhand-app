@@ -96,6 +96,8 @@ def check_password():
 
     # Incorrect password: show input again with error and login button
     elif not st.session_state["password_correct"]:
+        st.title("🔒 Secure Login")
+        st.write("Please enter your password to access the application.")
         with st.form(key="retry_form"):
             st.text_input(
                 "Password", 
