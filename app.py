@@ -68,55 +68,37 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Authentication function
-
-
-# Authentication function
 def check_password():
     """Returns `True` if the user entered the correct password."""
     def password_entered():
         if "PASSWORD" in st.secrets and "password" in st.session_state:
             if st.session_state["password"] == st.secrets.PASSWORD:
                 st.session_state["password_correct"] = True
-                del st.session_state["password"]  # Clear the password input for security
+                del st.session_state["password"]
             else:
                 st.session_state["password_correct"] = False
 
-    # Add title and description
-    st.title("Akhand App")
-    st.markdown("**Description:** Where you have all of your data")
-
     if "password_correct" not in st.session_state:
-        # Password input field
         st.text_input(
             "Password", 
             type="password", 
             key="password", 
+            on_change=password_entered,
             placeholder="Enter your access code"
         )
-        # Log In button
-        if st.button("Log In"):
-            password_entered()  # Validate the password when the button is clicked
         return False
     elif not st.session_state["password_correct"]:
-        # Password input field for incorrect attempts
         st.text_input(
             "Password", 
             type="password", 
             key="password", 
+            on_change=password_entered,
             placeholder="Try again"
         )
-        # Log In button
-        if st.button("Log In"):
-            password_entered()  # Validate the password when the button is clicked
         st.error("Incorrect password. Please try again.")
         return False
     else:
         return True
-
-# Example usage
-if check_password():
-    st.success("You are authenticated!")
-    # Add the rest of your app code here
 
 # Main app logic
 if check_password():
