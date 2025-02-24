@@ -114,6 +114,7 @@ if check_password():
     st.title("Akhand Unified Portal")
     st.markdown('<h2 class="gradient-header">Application Gateway</h2>', unsafe_allow_html=True)
     
+    # First row of cards
     col1, col2 = st.columns(2, gap="large")
     
     with col1:
@@ -147,6 +148,55 @@ if check_password():
             <a href="https://akhand-selected-people.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #10b981, #059669);
+                    color: white;
+                    border: none;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-weight: 600;
+                    transition: opacity 0.2s ease;
+                ">
+                    Launch App
+                </button>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Second row of cards
+    col3, col4 = st.columns(2, gap="large")
+    
+    with col3:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">📘 Passbook Application</div>
+            <div class="card-description">Access your passbook and transaction history</div>
+            <a href="https://akhand-passbook.streamlit.app/" target="_blank" style="text-decoration:none;">
+                <button style="
+                    background: linear-gradient(45deg, #f59e0b, #d97706);
+                    color: white;
+                    border: none;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-weight: 600;
+                    transition: opacity 0.2s ease;
+                ">
+                    Launch App
+                </button>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">📊 Analytics Application</div>
+            <div class="card-description">View detailed analytics and reports</div>
+            <a href="#" target="_blank" style="text-decoration:none;">
+                <button style="
+                    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
                     color: white;
                     border: none;
                     padding: 0.75rem 1.5rem;
