@@ -81,9 +81,6 @@ def check_password():
 
     # First run: show password input and login button
     if "password_correct" not in st.session_state:
-    # Add title and description
-    st.title("Akhand Passbook")
-    st.markdown("**Access all of the accounts & Password**")
         with st.form(key="login_form"):
             st.text_input(
                 "Password", 
