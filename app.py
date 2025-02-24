@@ -68,37 +68,55 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Authentication function
+import streamlit as st
+
+# Authentication function
 def check_password():
     """Returns `True` if the user entered the correct password."""
     def password_entered():
         if "PASSWORD" in st.secrets and "password" in st.session_state:
             if st.session_state["password"] == st.secrets.PASSWORD:
                 st.session_state["password_correct"] = True
-                del st.session_state["password"]
+                del st.session_state["password"]  # Clear the password input for security
             else:
                 st.session_state["password_correct"] = False
 
+    # Add title and description
+    st.title("Akhand App")
+    st.markdown("**Description:** Where you have all of your data")
+
     if "password_correct" not in st.session_state:
+        # Password input field
         st.text_input(
             "Password", 
             type="password", 
             key="password", 
-            on_change=password_entered,
             placeholder="Enter your access code"
         )
+        # Log In button
+        if st.button("Log In"):
+            password_entered()  # Validate the password when the button is clicked
         return False
     elif not st.session_state["password_correct"]:
+        # Password input field for incorrect attempts
         st.text_input(
             "Password", 
             type="password", 
             key="password", 
-            on_change=password_entered,
             placeholder="Try again"
         )
+        # Log In button
+        if st.button("Log In"):
+            password_entered()  # Validate the password when the button is clicked
         st.error("Incorrect password. Please try again.")
         return False
     else:
         return True
+
+# Example usage
+if check_password():
+    st.success("You are authenticated!")
+    # Add the rest of your app code here
 
 # Main app logic
 if check_password():
@@ -120,8 +138,8 @@ if check_password():
     with col1:
         st.markdown("""
         <div class="card">
-            <div class="card-title">🌍 Public Application</div>
-            <div class="card-description">Open access platform for general users</div>
+            <div class="card-title">🌍 Akhand Data Application</div>
+            <div class="card-description">All Voter Data App</div>
             <a href="https://akhand.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #6366f1, #8b5cf6);
@@ -143,8 +161,8 @@ if check_password():
     with col2:
         st.markdown("""
         <div class="card">
-            <div class="card-title">🔒 Private Application</div>
-            <div class="card-description">Restricted access for authorized users</div>
+            <div class="card-title">Selected People Database/div>
+            <div class="card-description">Database which is stored with selected People</div>
             <a href="https://akhand-selected-people.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #10b981, #059669);
@@ -170,7 +188,7 @@ if check_password():
         st.markdown("""
         <div class="card">
             <div class="card-title">📘 Passbook Application</div>
-            <div class="card-description">Access your passbook and transaction history</div>
+            <div class="card-description">Database For all Password is using Company</div>
             <a href="https://akhand-passbook.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #f59e0b, #d97706);
@@ -192,8 +210,8 @@ if check_password():
     with col4:
         st.markdown("""
         <div class="card">
-            <div class="card-title">📊 Analytics Application</div>
-            <div class="card-description">View detailed analytics and reports</div>
+            <div class="card-title">New Feature</div>
+            <div class="card-description">Coming Soon</div>
             <a href="#" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #8b5cf6, #7c3aed);
@@ -206,7 +224,7 @@ if check_password():
                     font-weight: 600;
                     transition: opacity 0.2s ease;
                 ">
-                    Launch App
+                    Coming Soon
                 </button>
             </a>
         </div>
