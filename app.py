@@ -152,7 +152,7 @@ if check_password():
     with col2:
         st.markdown("""
         <div class="card">
-            <div class="card-title">Akhand People/div>
+            <div class="card-title">Akhand People</div>
             <div class="card-description">Selected People Database</div>
             <a href="https://akhand-selected-people.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
