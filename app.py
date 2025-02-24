@@ -146,7 +146,7 @@ if check_password():
     with col2:
         st.markdown("""
         <div class="card">
-            <div class="card-title">Selected People Database/div>
+            <div class="card-title">Selected People Database</div>
             <div class="card-description">Database which is stored with selected People</div>
             <a href="https://akhand-selected-people.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
