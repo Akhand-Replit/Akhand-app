@@ -74,45 +74,54 @@ def check_password():
         if "PASSWORD" in st.secrets and "password" in st.session_state:
             if st.session_state["password"] == st.secrets.PASSWORD:
                 st.session_state["password_correct"] = True
-                del st.session_state["password"]
+                del st.session_state["password"]  # Don't store the password
             else:
                 st.session_state["password_correct"] = False
 
+
+    # First run: show password input and login button
     if "password_correct" not in st.session_state:
-            # Add title and description
-        st.title("Akhand App")
-        st.markdown("**Description:** Where you have all of your data")
-        st.text_input(
-            "Password", 
-            type="password", 
-            key="password", 
-            on_change=password_entered,
-            placeholder="Enter your access code"
-        )
+    # Add title and description
+    st.title("Akhand Passbook")
+    st.markdown("**Access all of the accounts & Password**")
+        with st.form(key="login_form"):
+            st.text_input(
+                "Password", 
+                type="password", 
+                key="password", 
+                placeholder="Enter your access code"
+            )
+            if st.form_submit_button("Login"):
+                password_entered()
         return False
+
+    # Incorrect password: show input again with error and login button
     elif not st.session_state["password_correct"]:
-        st.text_input(
-            "Password", 
-            type="password", 
-            key="password", 
-            on_change=password_entered,
-            placeholder="Try again"
-        )
+        with st.form(key="retry_form"):
+            st.text_input(
+                "Password", 
+                type="password", 
+                key="password", 
+                placeholder="Try again"
+            )
+            if st.form_submit_button("Login"):
+                password_entered()
         st.error("Incorrect password. Please try again.")
         return False
+
+    # Correct password: return True to proceed
     else:
         return True
 
-# Main app logic
+# Main app logic - SINGLE CHECK
 if check_password():
-    # Logout button in sidebar
+    # Sidebar components
     with st.sidebar:
         st.markdown("---")
-        if st.button("🚪 Log Out", key="logout_btn", help="Click to log out of the system"):
-            # Clear authentication credentials
+        if st.button("🚪 Log Out", key="logout_btn"):
             st.session_state["password_correct"] = False
             st.rerun()
-    
+
     # Main content
     st.title("Akhand Unified Portal")
     st.markdown('<h2 class="gradient-header">Application Gateway</h2>', unsafe_allow_html=True)
@@ -123,8 +132,8 @@ if check_password():
     with col1:
         st.markdown("""
         <div class="card">
-            <div class="card-title">🌍 Akhand Data Application</div>
-            <div class="card-description">All Voter Data App</div>
+            <div class="card-title">Akhand Data</div>
+            <div class="card-description">Access Voter Data</div>
             <a href="https://akhand.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #6366f1, #8b5cf6);
@@ -146,8 +155,8 @@ if check_password():
     with col2:
         st.markdown("""
         <div class="card">
-            <div class="card-title">Selected People Database</div>
-            <div class="card-description">Database which is stored with selected People</div>
+            <div class="card-title">Akhand People/div>
+            <div class="card-description">Selected People Database</div>
             <a href="https://akhand-selected-people.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #10b981, #059669);
@@ -172,8 +181,8 @@ if check_password():
     with col3:
         st.markdown("""
         <div class="card">
-            <div class="card-title">📘 Passbook Application</div>
-            <div class="card-description">Database For all Password is using Company</div>
+            <div class="card-title">Passbook Application</div>
+            <div class="card-description">Access your passbook and accounts history</div>
             <a href="https://akhand-passbook.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #f59e0b, #d97706);
@@ -195,8 +204,8 @@ if check_password():
     with col4:
         st.markdown("""
         <div class="card">
-            <div class="card-title">New Feature</div>
-            <div class="card-description">Coming Soon</div>
+            <div class="card-title">Coming Soon</div>
+            <div class="card-description">Various Feature coming soon</div>
             <a href="#" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #8b5cf6, #7c3aed);
@@ -209,7 +218,7 @@ if check_password():
                     font-weight: 600;
                     transition: opacity 0.2s ease;
                 ">
-                    Coming Soon
+                    Launch App
                 </button>
             </a>
         </div>
