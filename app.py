@@ -124,7 +124,7 @@ if check_password():
             st.rerun()
 
     # Main content
-    st.title("Akhand Unified Portal")
+    st.title("Akhand App Portal")
     st.markdown('<h2 class="gradient-header">Application Gateway</h2>', unsafe_allow_html=True)
     
     # First row of cards
