@@ -81,8 +81,8 @@ def check_password():
 
     # First run: show password input and login button
     if "password_correct" not in st.session_state:
-        st.title("🔒 Secure Login")
-        st.write("Please enter your password to access the application.")
+        st.title("🔒 Akhand App")
+        st.write("Please enter your password to access all application.")
         with st.form(key="login_form"):
             st.text_input(
                 "Password", 
@@ -227,4 +227,8 @@ if check_password():
     
     st.markdown("---")
     st.caption("ℹ️ Applications will open in new browser tabs • v1.1.0")
+    st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)    
+    
+    st.markdown("---")
+    st.caption("ℹ️ Akhand IT is authority of this app")
     st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
