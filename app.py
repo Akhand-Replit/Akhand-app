@@ -81,6 +81,8 @@ def check_password():
 
     # First run: show password input and login button
     if "password_correct" not in st.session_state:
+        st.title("🔒 Secure Login")
+        st.write("Please enter your password to access the application.")
         with st.form(key="login_form"):
             st.text_input(
                 "Password", 
