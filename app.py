@@ -179,7 +179,7 @@ if check_password():
         st.markdown("""
         <div class="card">
             <div class="card-title">Passbook Application</div>
-            <div class="card-description">Access your passbook and accounts history</div>
+            <div class="card-description">Access your all accounts</div>
             <a href="https://akhand-passbook.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #f59e0b, #d97706);
