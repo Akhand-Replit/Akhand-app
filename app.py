@@ -118,6 +118,7 @@ def check_password():
 if check_password():
     # Sidebar components
     with st.sidebar:
+        st.title("Sidebar")
         st.markdown("---")
         if st.button("🚪 Log Out", key="logout_btn"):
             st.session_state["password_correct"] = False
