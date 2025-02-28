@@ -225,9 +225,58 @@ if check_password():
             </a>
         </div>
         """, unsafe_allow_html=True)
+
+    # Third row of cards
+    col3, col4 = st.columns(2, gap="large")
+    
+    with col3:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">Image to link</div>
+            <div class="card-description">Upload your image and get the link</div>
+            <a href="https://akhandimageupload.streamlit.app/" target="_blank" style="text-decoration:none;">
+                <button style="
+                    background: linear-gradient(45deg, #f59e0b, #d97706);
+                    color: white;
+                    border: none;
+                    padding: 1.5rem 1.5rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-weight: 600;
+                    transition: opacity 0.2s ease;
+                ">
+                    Launch App
+                </button>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown("""
+        <div class="card">
+            <div class="card-title">New Feature</div>
+            <div class="card-description">Coming Soon</div>
+            <a href="#" target="_blank" style="text-decoration:none;">
+                <button style="
+                    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+                    color: white;
+                    border: none;
+                    padding: 1.5rem 1.5rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-weight: 600;
+                    transition: opacity 0.2s ease;
+                ">
+                    Launch App
+                </button>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
     
     st.markdown("---")
-    st.caption("ℹ️ Applications will open in new browser tabs • v1.1.0")
+    st.caption("ℹ️ Applications will open in new browser tabs • v1.12.0")
     st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)    
     
     st.markdown("---")
