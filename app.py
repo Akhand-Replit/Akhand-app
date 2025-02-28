@@ -282,3 +282,7 @@ if check_password():
     st.markdown("---")
     st.caption("ℹ️ Akhand IT is authority of this app")
     st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.caption("ℹ️ If you face any problem according to this app kindly contact with - W/A - 01302021723")
+    st.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
