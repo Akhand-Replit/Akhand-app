@@ -227,9 +227,9 @@ if check_password():
         """, unsafe_allow_html=True)
 
     # Third row of cards
-    col3, col4 = st.columns(2, gap="large")
+    col5, col6 = st.columns(2, gap="large")
     
-    with col3:
+    with col5:
         st.markdown("""
         <div class="card">
             <div class="card-title">Image to link</div>
@@ -252,7 +252,7 @@ if check_password():
         </div>
         """, unsafe_allow_html=True)
     
-    with col4:
+    with col6:
         st.markdown("""
         <div class="card">
             <div class="card-title">New Feature</div>
