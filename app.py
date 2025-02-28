@@ -141,7 +141,7 @@ if check_password():
                     background: linear-gradient(45deg, #6366f1, #8b5cf6);
                     color: white;
                     border: none;
-                    padding: 0.75rem 1.5rem;
+                    padding: 1.5rem 1.5rem;
                     border-radius: 8px;
                     cursor: pointer;
                     width: 100%;
@@ -164,7 +164,7 @@ if check_password():
                     background: linear-gradient(45deg, #10b981, #059669);
                     color: white;
                     border: none;
-                    padding: 0.75rem 1.5rem;
+                    padding: 1.5rem 1.5rem;
                     border-radius: 8px;
                     cursor: pointer;
                     width: 100%;
@@ -190,7 +190,7 @@ if check_password():
                     background: linear-gradient(45deg, #f59e0b, #d97706);
                     color: white;
                     border: none;
-                    padding: 0.75rem 1.5rem;
+                    padding: 1.5rem 1.5rem;
                     border-radius: 8px;
                     cursor: pointer;
                     width: 100%;
@@ -206,14 +206,14 @@ if check_password():
     with col4:
         st.markdown("""
         <div class="card">
-            <div class="card-title">Coming Soon</div>
-            <div class="card-description">Various Feature coming soon</div>
-            <a href="#" target="_blank" style="text-decoration:none;">
+            <div class="card-title">Akhand Employee</div>
+            <div class="card-description">Manage Your Employee</div>
+            <a href="https://akhand-report.streamlit.app/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #8b5cf6, #7c3aed);
                     color: white;
                     border: none;
-                    padding: 0.75rem 1.5rem;
+                    padding: 1.5rem 1.5rem;
                     border-radius: 8px;
                     cursor: pointer;
                     width: 100%;
