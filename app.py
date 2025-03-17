@@ -208,7 +208,7 @@ if check_password():
         <div class="card">
             <div class="card-title">Akhand Employee</div>
             <div class="card-description">Manage Your Employee</div>
-            <a href="https://akhand-office-v6-gazipur.streamlit.app/" target="_blank" style="text-decoration:none;">
+            <a href="https://office2.akhandvps.com/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #8b5cf6, #7c3aed);
                     color: white;
