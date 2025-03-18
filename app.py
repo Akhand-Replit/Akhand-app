@@ -255,9 +255,9 @@ if check_password():
     with col6:
         st.markdown("""
         <div class="card">
-            <div class="card-title">New Feature</div>
-            <div class="card-description">Coming Soon</div>
-            <a href="#" target="_blank" style="text-decoration:none;">
+            <div class="card-title">Vintage Chatroom</div>
+            <div class="card-description">Temporary Chatroom - Generate code - Share code - Chat </div>
+            <a href="https://chatroom.akhandvps.com/" target="_blank" style="text-decoration:none;">
                 <button style="
                     background: linear-gradient(45deg, #8b5cf6, #7c3aed);
                     color: white;
